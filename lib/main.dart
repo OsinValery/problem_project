@@ -1,20 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:problem_project/ui/root/root_view.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+  runApp(MaterialApp(
+    home: const RootView(),
+    theme: ThemeData(
+      primaryColor: Colors.brown,
+      scaffoldBackgroundColor: Colors.brown.withAlpha(100),
+      elevatedButtonTheme: const ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll(Colors.brown),
         ),
       ),
-    );
-  }
+      appBarTheme: const AppBarTheme(backgroundColor: Colors.brown),
+    ),
+  ));
 }

@@ -2,17 +2,21 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 class RemoteConfigService {
   Future<String?> getUrl() async {
-    return _remoteConfig.getString("url");
+    return _remoteConfig!.getString("url");
   }
 
-  late FirebaseRemoteConfig _remoteConfig;
+  FirebaseRemoteConfig? _remoteConfig;
+  bool _serviceInitialized = false;
 
-  void initService() async {
-    _remoteConfig = FirebaseRemoteConfig.instance;
-    await _remoteConfig.setConfigSettings(RemoteConfigSettings(
-      fetchTimeout: const Duration(seconds: 1),
+  Future initService() async {
+    if (_serviceInitialized) return;
+    _remoteConfig ??= FirebaseRemoteConfig.instance;
+    await _remoteConfig!.setConfigSettings(RemoteConfigSettings(
+      fetchTimeout: const Duration(seconds: 10),
       minimumFetchInterval: const Duration(seconds: 10),
     ));
-    await _remoteConfig.fetchAndActivate();
+    print("send config");
+    await _remoteConfig!.fetchAndActivate();
+    _serviceInitialized = true;
   }
 }

@@ -18,6 +18,7 @@ class RootBloc extends Cubit<AppState> {
     checkedConditions = true;
     state.conditionsChecked = true;
 
+
     var deviceService = PlatformJobs();
     var info = await deviceService.getDeviceInfo();
     var deviceConfig = DeviceConfig(info);
@@ -45,9 +46,13 @@ class RootBloc extends Cubit<AppState> {
 
     try {
       state.presentUrl = true;
+      print('check internet in firebase block');
+      print(await internetService.haveInternet());
       var urlService = RemoteConfigService();
-      urlService.initService();
+      await urlService.initService();
+      print('firebase configured');
       var url = await urlService.getUrl();
+      state.haveInternet = true;
       if (url == null) {
         state.url = "";
         state.presentUrl = false;
@@ -55,6 +60,7 @@ class RootBloc extends Cubit<AppState> {
         state.url = url;
       }
     } catch (_) {
+      print("can't request firebase!");
       print(_);
       state.haveInternet = false;
       firebaseBrocen = true;
@@ -63,7 +69,7 @@ class RootBloc extends Cubit<AppState> {
 
     print("firebase requested");
     print(state.haveInternet);
-    print(state.url);
+    print("final url = ${state.url}");
 
     if (state.presentUrl && state.url.isNotEmpty) {
       storageService.saveUrl(state.url);

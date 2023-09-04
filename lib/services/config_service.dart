@@ -6,7 +6,7 @@ class RemoteConfigService {
   }
 
   FirebaseRemoteConfig? _remoteConfig;
-  bool _serviceInitialized = false;
+  static bool _serviceInitialized = false;
 
   Future initService() async {
     if (_serviceInitialized) return;

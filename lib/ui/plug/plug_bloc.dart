@@ -19,7 +19,7 @@ class QuizState {
   bool isFinishing = false;
   int points = 0;
   int bestScore = 0;
-  int countQuestions = 5;
+  int countQuestions = 12;
 
   @override
   operator ==(other) {
@@ -53,7 +53,7 @@ class GameCubit extends Cubit<QuizState> {
   void startGame() {
     gameState.points = 0;
     gameState.curQuestion = 0;
-    gameState.selectedQuestions = gameRepository.getQuestions(n: 8);
+    gameState.selectedQuestions = gameRepository.getQuestions(n: 12);
 
     quizState.isPlaying = true;
     quizState.isFinishing = false;

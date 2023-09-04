@@ -11,10 +11,15 @@ class PlugView extends StatelessWidget {
     return BlocProvider(
         create: (_) => GameCubit(),
         child: Scaffold(
-          appBar: AppBar(
-            title: const Text("Sport Quiz"),
+          body: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('arts/background.jpeg'),
+                fit: BoxFit.fill,
+              ) ,
+            ),
+            child: const SelectView(),
           ),
-          body: const SelectView(),
         ));
   }
 }
@@ -31,16 +36,16 @@ class SelectView extends StatelessWidget {
     } else if (!state.isPlaying) {
       return const EndGameView(played: false);
     } else {
-      return QuizView(question: state.question!, points: state.points);
+      return QuizView(question: state.question!);
     }
   }
 }
 
 class QuizView extends StatelessWidget {
-  const QuizView({super.key, required this.question, required this.points});
+  const QuizView({super.key, required this.question});
 
   final Question question;
-  final int points;
+
 
   void select(BuildContext context, int index) {
     context.read<GameCubit>().selectAnswer(index);
@@ -81,6 +86,8 @@ class QuizView extends StatelessWidget {
           Flexible(
             flex: 3,
             child: GridView.count(
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
               crossAxisCount: 2,
               childAspectRatio: 4,
               shrinkWrap: true,

@@ -27,7 +27,7 @@ class ViewSelector extends StatelessWidget {
     if (!cobot.state.conditionsChecked) {
       cobot.getStartState();
       return const NoStateView();
-    } else if (!cobot.state.presentUrl) {
+    } else if (!cobot.state.presentUrl || cobot.state.url.isEmpty) {
       return const PlugView();
     } else if (!cobot.state.haveInternet) {
       return const NoInternetView();

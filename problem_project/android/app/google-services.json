@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "36695741827",
+    "project_id": "pingol-a5245",
+    "storage_bucket": "pingol-a5245.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36695741827:android:cd15752b37e06193a392b6",
+        "android_client_info": {
+          "package_name": "pingol.app.shrouz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36695741827-8hkgrs03dabhb3uesoet5f85jgdlog57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK52lbYCLZxxfqr8fHtkw8TLHzdpm-kWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36695741827-8hkgrs03dabhb3uesoet5f85jgdlog57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

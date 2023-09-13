@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "715408788136",
+    "project_id": "b9b-2dfed",
+    "storage_bucket": "b9b-2dfed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715408788136:android:635272732b1c2a3041509d",
+        "android_client_info": {
+          "package_name": "cards99.smolingsau"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7ma3f4WsSSITSjG5H5GIWPQ9AoBazcus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

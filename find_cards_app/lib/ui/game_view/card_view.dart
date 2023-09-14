@@ -83,7 +83,7 @@ class CardBackView extends StatelessWidget {
       child: Center(
         child: Text(
           id.toString(),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.transparent),
         ),
       ),
     );
